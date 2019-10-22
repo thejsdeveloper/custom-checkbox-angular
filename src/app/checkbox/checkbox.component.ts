@@ -26,7 +26,11 @@ import { CheckboxModel } from "./checkbox.model";
 export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() idKey = "code";
   @Input() model;
-  checkbox: CheckboxModel;
+  checkbox: CheckboxModel = {
+    code: '',
+    name: '',
+    selected: false
+  };
 
   onChange;
   onTouched;
@@ -41,14 +45,7 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   writeValue(model: CheckboxModel): void {
     const checkbox = this.checkboxEle.nativeElement;
     if (model) {
-      // if (this.checkbox[this.idKey] === model[this.idKey]) {
-      //   this.renderer.setProperty(checkbox, "checked", true);
-      //   this.checkbox.selected = true;
-      // } else {
-      //   this.renderer.setProperty(checkbox, "checked", false);
-      //   this.checkbox.selected = false;;
-      // }
-
+      this.renderer.setProperty(checkbox, "checked", model.selected);
       this.checkbox = model;
     }
   }

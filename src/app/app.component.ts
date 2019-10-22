@@ -10,15 +10,18 @@ export class AppComponent  {
   checkboxData = [
     {
       code: "netflix",
-      name: "Netflix"
+      name: "Netflix",
+      selected: false
     },
     {
       code: "amazon-prime",
-      name: "Amazon Prime"
+      name: "Amazon Prime",
+      selected: false
     },
     {
       code: "hotstar",
-      name: "Hotstar"
+      name: "Hotstar",
+      selected: true
     }
   ];
 
