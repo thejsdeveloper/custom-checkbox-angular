@@ -26,7 +26,7 @@ import { CheckboxModel } from "./checkbox.model";
 export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() idKey = "code";
   @Input() model;
-  @Input() checkbox: CheckboxModel;
+  checkbox: CheckboxModel;
 
   onChange;
   onTouched;
@@ -38,16 +38,18 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   ngOnChanges(changes: SimpleChanges) {}
 
-  writeValue(model: any): void {
+  writeValue(model: CheckboxModel): void {
     const checkbox = this.checkboxEle.nativeElement;
     if (model) {
-      if (this.checkbox[this.idKey] === model[this.idKey]) {
-        this.renderer.setProperty(checkbox, "checked", true);
-        this.checkbox.selected = true;
-      } else {
-        this.renderer.setProperty(checkbox, "checked", false);
-        this.checkbox.selected = false;;
-      }
+      // if (this.checkbox[this.idKey] === model[this.idKey]) {
+      //   this.renderer.setProperty(checkbox, "checked", true);
+      //   this.checkbox.selected = true;
+      // } else {
+      //   this.renderer.setProperty(checkbox, "checked", false);
+      //   this.checkbox.selected = false;;
+      // }
+
+      this.checkbox = model;
     }
   }
 
